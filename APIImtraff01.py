@@ -6,22 +6,37 @@ contas = [
     {
         'id': 'imt',
         'senha': '123',
-        'status': True
+        'status': True,
+        'clean': True,
+        'delete': True
+    },
+    {
+        'id': 'imt',
+        'senha': '123',
+        'status': True,
+        'clean': True,
+        'delete': True
     },
     {
         'id': 'imt2',
         'senha': '123',
-        'status': True
+        'status': True,
+        'clean': True,
+        'delete': True
     },
     {
         'id': 'imt3',
         'senha': '123',
-        'status': False
+        'status': True,
+        'clean': True,
+        'delete': True
     },
     {
         'id': 'Teste',
         'senha': 'qwe',
-        'status': False
+        'status': False,
+        'clean': False,
+        'delete': False
     }
 ]
 
@@ -41,7 +56,9 @@ def login(id, senha):
 
             if senha == conta['senha']:
 
-                return jsonify({'status': conta['status']})
+                return jsonify({'status': conta['status']},
+                               {'clean': conta['clean']},
+                               {'delete': conta['delete']})
 
             else:
 
@@ -49,7 +66,7 @@ def login(id, senha):
 
     else:
 
-        return ''
+        return jsonify({'status': ''})
 
 if __name__ == "__main__":
 
